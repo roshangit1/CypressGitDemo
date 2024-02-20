@@ -2,7 +2,7 @@ name: Regression Tests
 
 on:
   schedule:
-    - cron: '0 13 * * *' # This schedule triggers at 7AM MT daily
+    - cron: '*/5 * * * *' # This schedule triggers every 5 mins
 
 jobs:
   cypress:
@@ -21,4 +21,4 @@ jobs:
         run: npm install
 
       - name: App Regression Tests
-        run: npx cypress run --spec "**/Login.spec.cy.js" --record --key aa965f27-483d-420b-8f01-adc331d77fdc
+        run: npx cypress run --spec "**/Login.spec.cy.js" --record --key aac4cc8e-6b7a-48b3-b520-a5cef98c1a84
