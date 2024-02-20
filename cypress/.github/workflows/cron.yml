@@ -1,0 +1,24 @@
+name: Regression Tests
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # This schedule triggers at 7AM MT daily
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: App Regression Tests
+        run: npx cypress run --spec "**/Login.spec.cy.js" --record --key aa965f27-483d-420b-8f01-adc331d77fdc
