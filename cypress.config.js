@@ -6,6 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'https://parabank.parasoft.com/parabank/index.htm',
+    projectId: 'itqrow',
     screenshotOnRunFailure: false,
     screenshots :true,
     trashAssetsBeforeRuns: true,
