@@ -1,24 +1,14 @@
-name: Regression Tests
-
+name: Run Cypress Tests
 on:
   schedule:
-    - cron: '*/5 * * * *' # This schedule triggers every 5 mins
+    - cron: "*/5 * * * *" #run every 2 hour 40 mins
 
 jobs:
-  cypress:
+  cypress-tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      - name: Install Dependencies
+      - uses: actions/checkout@v2
+      - name: Install dependencies
         run: npm install
-
-      - name: App Regression Tests
+      - name: Hourly Run
         run: npx cypress run --spec "**/Login.spec.cy.js" --record --key aac4cc8e-6b7a-48b3-b520-a5cef98c1a84
